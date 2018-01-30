@@ -1,0 +1,30 @@
+description 'RateLimitJ Spring'
+
+dependencies {
+
+    api(
+            project(':ratelimitj-core'),
+            'io.lettuce:lettuce-core:5.0.1.RELEASE',
+            'org.springframework:spring-core:4.3.14.RELEASE',
+            'org.springframework:spring-context:4.3.14.RELEASE'
+    )
+
+    implementation(
+            'com.eclipsesource.minimal-json:minimal-json:0.9.4',
+            'org.aspectj:aspectjrt:1.8.13',
+            'org.aspectj:aspectjweaver:1.8.13',
+            libraries.findbugs,
+            libraries.slf4j,
+    )
+
+    testImplementation(
+            project(':ratelimitj-test'),
+            project(':ratelimitj-inmemory'),
+            libraries.assertj,
+            libraries.guava,
+            libraries.mockito,
+            libraries.logback,
+            'org.springframework:spring-test:4.3.14.RELEASE'
+    )
+
+}
